@@ -1,12 +1,11 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --accent: 59, 130, 246;
   --accent-light: 191, 219, 254;
   --accent-dark: 29, 78, 216;
-}
-
-@theme {
   --color-primary: #3b82f6;
   --color-secondary: #10b981;
   --color-accent: #f59e0b;

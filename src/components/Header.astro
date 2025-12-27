@@ -20,7 +20,10 @@ const baseUrl = import.meta.env.BASE_URL;
 					href={baseUrl}
 					class:list={[
 						"hover:text-primary transition-colors",
-						currentPath === baseUrl || currentPath === baseUrl.slice(0, -1) ? "text-primary font-semibold" : "",
+						currentPath === baseUrl ||
+						currentPath === baseUrl.slice(0, -1)
+							? "text-primary font-semibold"
+							: "",
 					]}
 				>
 					Home
@@ -81,15 +84,17 @@ const baseUrl = import.meta.env.BASE_URL;
 			<a href={baseUrl} class="block hover:text-primary transition-colors"
 				>Home</a
 			>
-			<a href={`${baseUrl}about`} class="block hover:text-primary transition-colors"
-				>About</a
+			<a
+				href={`${baseUrl}about`}
+				class="block hover:text-primary transition-colors">About</a
 			>
 			<a
 				href={`${baseUrl}projects`}
 				class="block hover:text-primary transition-colors">Projects</a
 			>
-			<a href={`${baseUrl}blog`} class="block hover:text-primary transition-colors"
-				>Blog</a
+			<a
+				href={`${baseUrl}blog`}
+				class="block hover:text-primary transition-colors">Blog</a
 			>
 			<a
 				href={`${baseUrl}contact`}
