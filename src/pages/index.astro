@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { personalInfo } from "../data/portfolio";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Truong Phi An - Full-Stack Developer">
@@ -11,7 +13,7 @@ import { personalInfo } from "../data/portfolio";
 				<div class="avatar-container relative group">
 					<div class="avatar-border"></div>
 					<img
-						src="/avatar.jpg"
+						src={`${baseUrl}avatar.jpg`}
 						alt="Truong Phi An"
 						class="avatar-image w-48 h-48 md:w-64 md:h-64 rounded-full object-cover relative z-10"
 						style="object-position: center 30%;"
@@ -31,19 +33,19 @@ import { personalInfo } from "../data/portfolio";
 			</p>
 			<div class="flex flex-wrap gap-4 justify-center">
 				<a
-					href="/projects"
+					href={`${baseUrl}projects`}
 					class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
 				>
 					Xem Dự án
 				</a>
 				<a
-					href="/blog"
+					href={`${baseUrl}blog`}
 					class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-semibold transition-all"
 				>
 					Đọc Blog
 				</a>
 				<a
-					href="/contact"
+					href={`${baseUrl}contact`}
 					class="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
 				>
 					Liên hệ

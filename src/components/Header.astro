@@ -1,5 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <header
@@ -8,7 +9,7 @@ const currentPath = Astro.url.pathname;
 	<nav class="container mx-auto px-4 py-4">
 		<div class="flex items-center justify-between">
 			<a
-				href="/"
+				href={baseUrl}
 				class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
 			>
 				Truong Phi An
@@ -16,19 +17,19 @@ const currentPath = Astro.url.pathname;
 
 			<div class="hidden md:flex items-center gap-6">
 				<a
-					href="/"
+					href={baseUrl}
 					class:list={[
 						"hover:text-primary transition-colors",
-						currentPath === "/" ? "text-primary font-semibold" : "",
+						currentPath === baseUrl || currentPath === baseUrl.slice(0, -1) ? "text-primary font-semibold" : "",
 					]}
 				>
 					Home
 				</a>
 				<a
-					href="/about"
+					href={`${baseUrl}about`}
 					class:list={[
 						"hover:text-primary transition-colors",
-						currentPath === "/about"
+						currentPath.includes("/about")
 							? "text-primary font-semibold"
 							: "",
 					]}
@@ -36,10 +37,10 @@ const currentPath = Astro.url.pathname;
 					About
 				</a>
 				<a
-					href="/projects"
+					href={`${baseUrl}projects`}
 					class:list={[
 						"hover:text-primary transition-colors",
-						currentPath === "/projects"
+						currentPath.includes("/projects")
 							? "text-primary font-semibold"
 							: "",
 					]}
@@ -47,10 +48,10 @@ const currentPath = Astro.url.pathname;
 					Projects
 				</a>
 				<a
-					href="/blog"
+					href={`${baseUrl}blog`}
 					class:list={[
 						"hover:text-primary transition-colors",
-						currentPath.startsWith("/blog")
+						currentPath.includes("/blog")
 							? "text-primary font-semibold"
 							: "",
 					]}
@@ -58,10 +59,10 @@ const currentPath = Astro.url.pathname;
 					Blog
 				</a>
 				<a
-					href="/contact"
+					href={`${baseUrl}contact`}
 					class:list={[
 						"hover:text-primary transition-colors",
-						currentPath === "/contact"
+						currentPath.includes("/contact")
 							? "text-primary font-semibold"
 							: "",
 					]}
@@ -77,21 +78,21 @@ const currentPath = Astro.url.pathname;
 
 		<!-- Mobile Menu -->
 		<div id="mobile-menu" class="hidden md:hidden flex-col gap-4 mt-4">
-			<a href="/" class="block hover:text-primary transition-colors"
+			<a href={baseUrl} class="block hover:text-primary transition-colors"
 				>Home</a
 			>
-			<a href="/about" class="block hover:text-primary transition-colors"
+			<a href={`${baseUrl}about`} class="block hover:text-primary transition-colors"
 				>About</a
 			>
 			<a
-				href="/projects"
+				href={`${baseUrl}projects`}
 				class="block hover:text-primary transition-colors">Projects</a
 			>
-			<a href="/blog" class="block hover:text-primary transition-colors"
+			<a href={`${baseUrl}blog`} class="block hover:text-primary transition-colors"
 				>Blog</a
 			>
 			<a
-				href="/contact"
+				href={`${baseUrl}contact`}
 				class="block hover:text-primary transition-colors">Contact</a
 			>
 		</div>
