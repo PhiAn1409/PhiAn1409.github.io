@@ -1,0 +1,109 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header
+	class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-200"
+>
+	<nav class="container mx-auto px-4 py-4">
+		<div class="flex items-center justify-between">
+			<a
+				href="/"
+				class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+			>
+				Truong Phi An
+			</a>
+
+			<div class="hidden md:flex items-center gap-6">
+				<a
+					href="/"
+					class:list={[
+						"hover:text-primary transition-colors",
+						currentPath === "/" ? "text-primary font-semibold" : "",
+					]}
+				>
+					Home
+				</a>
+				<a
+					href="/about"
+					class:list={[
+						"hover:text-primary transition-colors",
+						currentPath === "/about"
+							? "text-primary font-semibold"
+							: "",
+					]}
+				>
+					About
+				</a>
+				<a
+					href="/projects"
+					class:list={[
+						"hover:text-primary transition-colors",
+						currentPath === "/projects"
+							? "text-primary font-semibold"
+							: "",
+					]}
+				>
+					Projects
+				</a>
+				<a
+					href="/blog"
+					class:list={[
+						"hover:text-primary transition-colors",
+						currentPath.startsWith("/blog")
+							? "text-primary font-semibold"
+							: "",
+					]}
+				>
+					Blog
+				</a>
+				<a
+					href="/contact"
+					class:list={[
+						"hover:text-primary transition-colors",
+						currentPath === "/contact"
+							? "text-primary font-semibold"
+							: "",
+					]}
+				>
+					Contact
+				</a>
+			</div>
+
+			<button id="mobile-menu-btn" class="md:hidden text-2xl">
+				☰
+			</button>
+		</div>
+
+		<!-- Mobile Menu -->
+		<div id="mobile-menu" class="hidden md:hidden flex-col gap-4 mt-4">
+			<a href="/" class="block hover:text-primary transition-colors"
+				>Home</a
+			>
+			<a href="/about" class="block hover:text-primary transition-colors"
+				>About</a
+			>
+			<a
+				href="/projects"
+				class="block hover:text-primary transition-colors">Projects</a
+			>
+			<a href="/blog" class="block hover:text-primary transition-colors"
+				>Blog</a
+			>
+			<a
+				href="/contact"
+				class="block hover:text-primary transition-colors">Contact</a
+			>
+		</div>
+	</nav>
+</header>
+
+<script>
+	const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+	const mobileMenu = document.getElementById("mobile-menu");
+
+	mobileMenuBtn?.addEventListener("click", () => {
+		mobileMenu?.classList.toggle("hidden");
+		mobileMenu?.classList.toggle("flex");
+	});
+</script>

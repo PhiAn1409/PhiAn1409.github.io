@@ -1,0 +1,247 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+	personalInfo,
+	experiences,
+	education,
+	skills,
+	certificates,
+} from "../data/portfolio";
+---
+
+<Layout title="About - Truong Phi An">
+	<div class="max-w-6xl mx-auto py-20 px-4">
+		<!-- Personal Info Section -->
+		<section class="mb-20">
+			<div class="flex flex-col md:flex-row gap-8 items-center mb-8">
+				<div class="avatar-about-container relative group shrink-0">
+					<div class="avatar-about-border"></div>
+					<img
+						src="/avatar.jpg"
+						alt="Truong Phi An"
+						class="avatar-about-image rounded-full object-cover relative z-10"
+						style="object-position: center 30%;"
+					/>
+				</div>
+				<div class="flex-1">
+					<h1
+						class="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+					>
+						About Me
+					</h1>
+					<p class="text-xl text-gray-700 mb-4">
+						{personalInfo.summary}
+					</p>
+				</div>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600">
+				<div>📧 {personalInfo.email}</div>
+				<div>📱 {personalInfo.phone}</div>
+				<div>📍 {personalInfo.location}</div>
+				<div>
+					<a
+						href={personalInfo.github}
+						target="_blank"
+						class="hover:text-primary">🔗 GitHub</a
+					>
+				</div>
+			</div>
+		</section>
+
+		<!-- Work Experience Section -->
+		<section class="mb-20">
+			<h2 class="text-4xl font-bold mb-8">Kinh nghiệm</h2>
+			<div class="space-y-8">
+				{
+					experiences.map((exp) => (
+						<div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-primary">
+							<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+								<h3 class="text-2xl font-bold">{exp.title}</h3>
+								<span class="text-gray-600">{exp.period}</span>
+							</div>
+							<p class="text-lg text-secondary mb-4">
+								{exp.company}
+							</p>
+							<ul class="list-disc list-inside space-y-2 text-gray-700">
+								{exp.description.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section class="mb-20">
+			<h2 class="text-4xl font-bold mb-8">Kỹ năng</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{
+					skills.map((skillGroup) => (
+						<div class="bg-white p-6 rounded-lg shadow-lg">
+							<h3 class="text-2xl font-bold mb-4 text-primary">
+								{skillGroup.category}
+							</h3>
+							<div class="flex flex-wrap gap-2">
+								{skillGroup.items.map((skill) => (
+									<span class="bg-gray-100 px-3 py-1 rounded-full text-sm">
+										{skill}
+									</span>
+								))}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- Education Section -->
+		<section class="mb-20">
+			<h2 class="text-4xl font-bold mb-8">Học vấn</h2>
+			<div class="space-y-6">
+				{
+					education.map((edu) => (
+						<div class="bg-white p-6 rounded-lg shadow-lg">
+							<h3 class="text-2xl font-bold mb-2">
+								{edu.degree}
+							</h3>
+							<p class="text-lg text-secondary mb-2">
+								{edu.institution}
+							</p>
+							<div class="flex items-center gap-4 text-gray-600">
+								<span>{edu.period}</span>
+								{edu.gpa && (
+									<span class="font-semibold">
+										GPA: {edu.gpa}
+									</span>
+								)}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- Certifications Section -->
+		<section class="mb-20">
+			<h2 class="text-4xl font-bold mb-8">Chứng chỉ & Thành tích</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{
+					certificates.map((cert) => (
+						<div class="bg-white p-6 rounded-lg shadow-lg overflow-hidden">
+							{cert.image && (
+								<div class="mb-4 -mx-6 -mt-6">
+									<img
+										src={cert.image}
+										alt={cert.name}
+										class="w-full h-48 object-cover"
+									/>
+								</div>
+							)}
+							<div class="flex items-center justify-between">
+								<div>
+									<h3 class="font-bold text-lg">
+										{cert.name}
+									</h3>
+									<p class="text-sm text-gray-600">
+										{cert.issuer}
+									</p>
+								</div>
+								<span class="text-primary font-bold text-lg">
+									{cert.year}
+								</span>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	/* Avatar Container for About Page */
+	.avatar-about-container {
+		position: relative;
+		display: inline-block;
+		width: 12rem; /* 192px */
+		height: 12rem;
+		aspect-ratio: 1;
+	}
+
+	/* Gradient border effect */
+	.avatar-about-border {
+		position: absolute;
+		top: -6px;
+		left: -6px;
+		right: -6px;
+		bottom: -6px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #8b5cf6, #6366f1, #ec4899, #8b5cf6);
+		background-size: 400% 400%;
+		animation: gradient-shift 4s ease infinite;
+		z-index: 0;
+		opacity: 0.7;
+	}
+
+	/* Avatar image styling */
+	.avatar-about-image {
+		width: 100%;
+		height: 100%;
+		box-shadow:
+			0 20px 25px -5px rgba(0, 0, 0, 0.15),
+			0 10px 10px -5px rgba(0, 0, 0, 0.08);
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		background: white;
+		padding: 3px;
+	}
+
+	.avatar-about-container:hover .avatar-about-image {
+		transform: scale(1.08) translateY(-4px);
+		box-shadow:
+			0 30px 40px -5px rgba(139, 92, 246, 0.4),
+			0 20px 20px -5px rgba(99, 102, 241, 0.3);
+	}
+
+	.avatar-about-container:hover .avatar-about-border {
+		opacity: 1;
+		animation-duration: 2.5s;
+		filter: blur(2px);
+	}
+
+	/* Gradient shift animation */
+	@keyframes gradient-shift {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	/* Fade in animation */
+	.avatar-about-container {
+		animation: fade-slide-in 0.6s ease-out;
+	}
+
+	@keyframes fade-slide-in {
+		0% {
+			opacity: 0;
+			transform: translateX(-20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* Dark mode adjustments */
+	:global(.dark) .avatar-about-image,
+	:global(.dark) .avatar-image {
+		background: #1f2937;
+	}
+</style>
