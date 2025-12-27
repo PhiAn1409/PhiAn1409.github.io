@@ -8,6 +8,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://PhiAn1409.github.io',
-  base: '/blog_phian',
   integrations: [mdx(), sitemap(), tailwind()],
 });
