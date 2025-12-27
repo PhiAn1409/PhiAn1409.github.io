@@ -3,8 +3,8 @@ import type { PersonalInfo, Experience, Education, Project, Skill, Certificate }
 export const personalInfo: PersonalInfo = {
   name: 'Trương Phi Ân',
   title: 'Sinh viên Công nghệ Phần mềm',
-  email: 'truongphian@email.com',
-  phone: '+84 (123) 456 789',
+  email: 'phian.14092004@gmail.com',
+  phone: '0763000952',
   location: 'TP. Hồ Chí Minh, Việt Nam',
   github: 'https://github.com/truongphian',
   linkedin: 'https://linkedin.com/in/truongphian',
