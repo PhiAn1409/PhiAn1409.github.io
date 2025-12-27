@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
   email: 'phian.14092004@gmail.com',
   phone: '0763000952',
   location: 'TP. Hồ Chí Minh, Việt Nam',
-  github: 'https://github.com/truongphian',
+  github: 'https://github.com/PhiAn1409',
   linkedin: 'https://linkedin.com/in/truongphian',
   summary: 'Sinh viên năm cuối chuyên ngành Công nghệ Phần mềm tại Đại học Công nghệ TP.HCM (Hutech). Đam mê phát triển web và học hỏi các công nghệ mới. Có kiến thức về JavaScript, TypeScript, React và các công nghệ web hiện đại.'
 };
