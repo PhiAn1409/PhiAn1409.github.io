@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://truongphian.github.io',
+  site: 'https://PhiAn1409.github.io',
   base: '/blog_phian',
   integrations: [mdx(), sitemap()],
 
